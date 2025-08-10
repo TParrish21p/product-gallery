@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Gallery</title>
+  <meta name="description" content="Responsive product gallery with search, filters, and sorting." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#results">Skip to results</a>
+
+  <header class="container">
+    <h1>Product Gallery</h1>
+    <p class="muted">e-commerce, simplified</p>
+
+    <form id="controls" class="controls" aria-label="Filters">
+      <label>
+        <span class="label">Search</span>
+        <input id="q" name="q" type="search" placeholder="Search…" />
+      </label>
+
+      <label>
+        <span class="label">Category</span>
+        <select id="cat" name="cat">
+          <option value="all">All</option>
+          <!-- options injected by JS -->
+        </select>
+      </label>
+
+      <label>
+        <span class="label">Sort</span>
+        <select id="sort" name="sort">
+          <option value="relevance">Relevance</option>
+          <option value="price_asc">Price ↑</option>
+          <option value="price_desc">Price ↓</option>
+          <option value="rating_desc">Rating</option>
+        </select>
+      </label>
+
+      <label>
+        <span class="label">Max price: <output id="priceOut">$300</output></span>
+        <input id="max" name="max" type="range" min="0" max="300" step="10" value="300" />
+      </label>
+
+      <button type="reset" class="ghost">Reset</button>
+    </form>
+  </header>
+
+  <main class="container">
+    <section id="results" aria-live="polite" aria-busy="false">
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+      <div id="grid" class="grid" role="list"></div>
+      <p id="empty" class="empty" hidden>No products found.</p>
+    </section>
+  </main>
+
+  <footer class="container foot">© <span id="y"></span> Product Gallery | Tyler Parrish</footer>
+
+  <noscript>
+    <div class="container warn">This page needs a bit of JavaScript for filtering.</div>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
